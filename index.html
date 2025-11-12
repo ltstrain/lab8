@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Lab 7 - JS Event Handling</title>
+  <style>
+    /* General page styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 50px;
+    }
+
+    /* Container for input/button/output */
+    #container {
+      margin: 20px auto;
+      width: 320px;
+      padding: 30px 20px;
+      background-color: #ffffff;
+      border: 2px solid #333;
+      border-radius: 12px;
+      box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Input box styling */
+    #entryinput {
+      width: 90%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 2px solid #333;
+      border-radius: 6px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    #entryinput:focus {
+      border-color: #e74c3c;
+      box-shadow: 0 0 5px rgba(231,76,60,0.5);
+    }
+
+    /* Alert Me button styling */
+    #entrybutton {
+      background-color: #e74c3c;
+      color: white;
+      padding: 12px 25px;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.3s, transform 0.1s, box-shadow 0.2s;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      display: inline-block;
+      user-select: none;
+    }
+
+    #entrybutton:hover {
+      background-color: #c0392b;
+      box-shadow: 0 7px 14px rgba(0,0,0,0.25);
+    }
+
+    #entrybutton:active {
+      transform: translateY(2px);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    /* h2 styling */
+    #textoutput {
+      margin-top: 25px;
+      color: #333;
+      font-weight: bold;
+      font-size: 18px;
+      min-height: 24px;
+    }
+
+    /* Center class for headings */
+    .center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="center">Basic JavaScript Event Handling and DOM</h1>
+  <p class="center">Type something in the box and click "Alert Me"</p>
+
+  <div id="container">
+    <input id="entryinput" type="text" placeholder="Enter a Message">
+    <div id="entrybutton">Alert Me</div>
+    <h2 id="textoutput" class="center">Show results here</h2>
+  </div>
+
+  <script>
+    // Lab 7 - Basic JavaScript Event Handling and DOM
+    // Author: London Strain
+    // Date: 11/11/25
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const button = document.getElementById("entrybutton");
+      const input = document.getElementById("entryinput");
+      const output = document.getElementById("textoutput");
+
+      button.addEventListener("click", function() {
+        let userText = input.value;
+
+        // Show alert with your name + input
+        alert("London: " + userText);
+
+        // Update the h2 with input text only
+        output.textContent = userText;
+
+        // Clear input after clicking
+        input.value = "";
+        input.focus(); // Optional: keep cursor in input
+      });
+    });
+  </script>
+</body>
+</html>
